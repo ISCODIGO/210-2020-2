@@ -1,0 +1,72 @@
+﻿<Window x:Class="Archivos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archivos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="Background" Value="CadetBlue" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10, 0" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Manejo de Archivos" FontSize="36"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Ruta" FontSize="30"
+                   Grid.Row="0" Grid.Column="0"/>
+            <TextBox x:Name="RutaTxt" Grid.Row="0" Grid.Column="1"
+                     VerticalContentAlignment="Center"                      
+                     FontSize="18" Background="AliceBlue" 
+                     MouseDoubleClick="RutaTxt_MouseDoubleClick"/>
+            <RadioButton Grid.Row="1" Grid.Column="0" Checked="RadioButton_Checked" IsChecked="True">Archivo</RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="1" Checked="RadioButton_Checked">Directorio</RadioButton>
+        </Grid>
+        <Button Grid.Row="2" Grid.Column="0" x:Name="DirectoryBtn" 
+                Click="DirectoryBtn_Click">
+            Crear Directory
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="FileBtn" 
+                Click="FileBtn_Click">
+            Crear File
+        </Button>
+        <Button Grid.Row="3" Grid.Column="0" x:Name="EscribirBtn"
+                Click="EscribirBtn_Click">
+            Escribir en File
+        </Button>
+        <Button Grid.Row="3" Grid.Column="1" x:Name="LeerBtn"
+                Click="LeerBtn_Click">
+            Leer en File
+        </Button>
+    </Grid>
+</Window>
