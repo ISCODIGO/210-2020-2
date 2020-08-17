@@ -152,11 +152,12 @@ namespace Archivos
 
                     using (StreamReader sr = new StreamReader(RutaTxt.Text))
                     {
-                        while ((linea = sr.ReadLine()) != null)
+                        do
                         {
+                            linea = sr.ReadLine();
                             sb.Append(linea);
                             sb.Append("\n");
-                        } 
+                        } while (linea != null);
                     }
 
                     MessageBox.Show(sb.ToString(), "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -185,11 +186,6 @@ namespace Archivos
             {
                 this.OpcionApertura = EOpcion.DIRECTORIO;
             }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }
